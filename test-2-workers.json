@@ -1,0 +1,16 @@
+{
+    "jobName": "test-2-workers",
+    "jobQueue": "aws-compute-blog-batch-processing-job-queue",
+    "arrayProperties": {
+        "size": 2
+    },
+    "jobDefinition": "aws-compute-blog-batch-processing-job-definition",
+    "containerOverrides": {
+        "environment": [
+            {
+                "name": "NUMBER_OF_WORKERS",
+                "value": "2"
+            }
+        ]
+    }
+}
