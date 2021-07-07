@@ -1,10 +1,10 @@
 {
     "jobName": "test-2-workers",
-    "jobQueue": "aws-compute-blog-batch-processing-job-queue",
+    "jobQueue": "aws-hpc-blog-batch-processing-job-queue",
     "arrayProperties": {
         "size": 2
     },
-    "jobDefinition": "aws-compute-blog-batch-processing-job-definition",
+    "jobDefinition": "aws-hpc-blog-batch-processing-job-definition",
     "containerOverrides": {
         "environment": [
             {
