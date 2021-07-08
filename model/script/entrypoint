@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# Get sorted list of all input filenames
+# Get sorted list of all input file names
 SORTED_FILELIST=($(find $INPUT_DIR -type f | sort))
 
 # Calculate number of files for this worker to process:
