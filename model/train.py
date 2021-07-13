@@ -7,7 +7,7 @@ import json                                       # For parsing hosting outputs
 import os                                         # For manipulating filepath names
 import joblib
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import make_scorer, accuracy_score,confusion_matrix 
+from sklearn.metrics import make_scorer, accuracy_score,confusion_matrix
 from sklearn.model_selection import GridSearchCV, cross_val_score, StratifiedKFold, learning_curve
 
 data = pd.read_csv('./bank-additional/bank-additional-full.csv')
@@ -16,14 +16,15 @@ data['not_working'] = np.where(np.in1d(data['job'], ['student', 'retired', 'unem
 model_data = pd.get_dummies(data)                                                                  # Convert categorical variables to sets of indicators
 model_data = model_data.drop(['duration', 'emp.var.rate', 'cons.price.idx', 'cons.conf.idx', 'euribor3m', 'nr.employed'], axis=1)
 
-train_data, test_data = np.split(model_data.sample(frac=1, random_state=1729), [int(0.75 * len(model_data))])  
+train_data, test_data = np.split(model_data.sample(frac=1, random_state=1729), [int(0.75 * len(model_data))])
 
 train_data = pd.concat([train_data['y_yes'], train_data.drop(['y_no', 'y_yes'], axis=1)], axis=1)
 train_data.to_csv('train.csv', index=False, header=False)
 
 test_data = pd.concat([test_data['y_yes'], test_data.drop(['y_no', 'y_yes'], axis=1)], axis=1)
 test_data = test_data.drop(['y_yes'],axis=1)
-test_data.to_csv('test_data_1.csv', index=False, header=False)
+test_data = test_data.append([test_data] * 30)
+test_data.to_csv('test-data1.csv', index=False, header=False)
 
 y_train = train_data['y_yes'].values
 x_train = train_data.drop(labels=['y_yes'],axis=1, inplace=False)
