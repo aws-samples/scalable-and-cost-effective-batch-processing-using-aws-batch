@@ -1,6 +1,6 @@
 ## Scalable and Cost-Effective Batch Processing with AWS Batch and Amazon FSx
 
-This repository should be used when deploying the batch processing demonstration outlined in blog post: <link to blog post>
+This repository should be used when deploying the batch processing demonstration outlined in blog post: https://aws.amazon.com/blogs/hpc/ml-training-with-aws-batch-and-amazon-fsx/
 
 ## Getting started
 
